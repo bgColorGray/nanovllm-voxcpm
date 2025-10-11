@@ -111,7 +111,6 @@ class VoxCPMRunner(BaseModelRunner):
         outputs = self.run_model(inputs, is_prefill)
 
         latents = outputs["latents"]
-        stop_flag = outputs["stop_flag"].cpu().tolist()
 
         pad_lengths = []
         for i in range(len(seqs)):
@@ -129,6 +128,7 @@ class VoxCPMRunner(BaseModelRunner):
             vae_decoder_inputs[i, pad_len:pad_len+self.patch_size] = latents[i].to(torch.float32)
         
         vae_decoder_outputs = self.vae.decode(vae_decoder_inputs.permute(0, 2, 1))[:, 0, :].cpu().numpy()
+        stop_flag = outputs["stop_flag"].cpu().tolist()
 
         ret_waveforms = []
         for i in range(len(seqs)):

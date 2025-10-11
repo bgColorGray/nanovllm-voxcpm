@@ -215,7 +215,8 @@ class AsyncVoxCPMServer:
         self.queue_out = ctx.Queue()
         self.process = ctx.Process(
             target=main_loop, 
-            args=(self.queue_in, self.queue_out, (model, inference_timesteps, max_num_batched_tokens, max_num_seqs, max_model_len, gpu_memory_utilization, enforce_eager), {})
+            args=(self.queue_in, self.queue_out, (model, inference_timesteps, max_num_batched_tokens, max_num_seqs, max_model_len, gpu_memory_utilization, enforce_eager), {}),
+            daemon=True,
         )
         self.process.start()
 
