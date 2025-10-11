@@ -1,8 +1,8 @@
 from collections import deque
 
-from nanovllm.config import Config
-from nanovllm.engine.sequence import Sequence, SequenceStatus
-from nanovllm.engine.block_manager import BlockManager
+from nanovllm_voxcpm.config import Config
+from nanovllm_voxcpm.engine.sequence import Sequence, SequenceStatus
+from nanovllm_voxcpm.engine.block_manager import BlockManager
 
 import uuid
 

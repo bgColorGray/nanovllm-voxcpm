@@ -2,11 +2,11 @@ from dataclasses import dataclass
 import torch
 from multiprocessing.synchronize import Event
 
-from nanovllm.config import Config
-from nanovllm.engine.model_runner import RunnerTask, BaseModelRunner
-from nanovllm.utils.loader import load_model
-from nanovllm.models.voxcpm.model import VoxCPMModel, VoxCPMConfig
-from nanovllm.layers.audio_vae import AudioVAE
+from nanovllm_voxcpm.config import Config
+from nanovllm_voxcpm.engine.model_runner import RunnerTask, BaseModelRunner
+from nanovllm_voxcpm.utils.loader import load_model
+from nanovllm_voxcpm.models.voxcpm.model import VoxCPMModel, VoxCPMConfig
+from nanovllm_voxcpm.layers.audio_vae import AudioVAE
 import numpy as np
 import os
 

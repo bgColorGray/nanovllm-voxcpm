@@ -1,10 +1,10 @@
 import atexit
 import torch.multiprocessing as mp
 
-from nanovllm.config import Config
-from nanovllm.engine.sequence import Sequence
-from nanovllm.engine.scheduler import Scheduler
-from nanovllm.engine.model_runner import RunnerTask, BaseModelRunner
+from nanovllm_voxcpm.config import Config
+from nanovllm_voxcpm.engine.sequence import Sequence
+from nanovllm_voxcpm.engine.scheduler import Scheduler
+from nanovllm_voxcpm.engine.model_runner import RunnerTask, BaseModelRunner
 
 class LLMEngineBase:
     model_runner : BaseModelRunner

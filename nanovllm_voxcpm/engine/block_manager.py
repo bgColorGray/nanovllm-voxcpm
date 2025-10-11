@@ -1,8 +1,6 @@
 from collections import deque
 import xxhash
-import numpy as np
-
-from nanovllm.engine.sequence import Sequence
+from nanovllm_voxcpm.engine.sequence import Sequence
 
 
 class Block:

@@ -4,7 +4,7 @@ import triton
 import triton.language as tl
 
 from flash_attn import flash_attn_varlen_func, flash_attn_with_kvcache, flash_attn_func
-from nanovllm.utils.context import get_context
+from nanovllm_voxcpm.utils.context import get_context
 
 
 @triton.jit

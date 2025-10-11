@@ -4,9 +4,9 @@ import torch.distributed as dist
 from multiprocessing.synchronize import Event
 from multiprocessing.shared_memory import SharedMemory
 
-from nanovllm.config import Config
-from nanovllm.layers.attention import Attention
-from nanovllm.utils.context import set_context, reset_context, get_context
+from nanovllm_voxcpm.config import Config
+from nanovllm_voxcpm.layers.attention import Attention
+from nanovllm_voxcpm.utils.context import set_context, reset_context, get_context
 from typing import Generic, TypeVar
 
 PlayloadType = TypeVar("PlayloadType")

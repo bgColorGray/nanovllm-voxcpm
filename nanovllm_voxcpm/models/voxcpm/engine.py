@@ -1,12 +1,12 @@
-from nanovllm.engine.llm_engine import LLMEngineBase
-from nanovllm.models.voxcpm.runner import VoxCPMRunner, RunnerTask, VoxCPMPayload
-from nanovllm.config import Config
-from nanovllm.models.voxcpm.config import VoxCPMConfig
-from nanovllm.engine.sequence import Sequence
+from nanovllm_voxcpm.engine.llm_engine import LLMEngineBase
+from nanovllm_voxcpm.models.voxcpm.runner import VoxCPMRunner, RunnerTask, VoxCPMPayload
+from nanovllm_voxcpm.config import Config
+from nanovllm_voxcpm.models.voxcpm.config import VoxCPMConfig
+from nanovllm_voxcpm.engine.sequence import Sequence
 from dataclasses import dataclass
 import numpy as np
 from transformers import LlamaTokenizerFast
-from nanovllm.models.voxcpm.utils import mask_multichar_chinese_tokens
+from nanovllm_voxcpm.models.voxcpm.utils import mask_multichar_chinese_tokens
 import torch
 
 

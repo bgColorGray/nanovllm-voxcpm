@@ -2,15 +2,15 @@ import torch
 from torch import nn
 import torch.distributed as dist
 
-from nanovllm.layers.activation import SiluAndMul
-from nanovllm.layers.attention import Attention
-from nanovllm.layers.layernorm import RMSNorm
-from nanovllm.layers.linear import QKVParallelLinear, MergedColumnParallelLinear, RowParallelLinear
-from nanovllm.layers.embed_head import VocabParallelEmbedding
+from nanovllm_voxcpm.layers.activation import SiluAndMul
+from nanovllm_voxcpm.layers.attention import Attention
+from nanovllm_voxcpm.layers.layernorm import RMSNorm
+from nanovllm_voxcpm.layers.linear import QKVParallelLinear, MergedColumnParallelLinear, RowParallelLinear
+from nanovllm_voxcpm.layers.embed_head import VocabParallelEmbedding
 import math
 
-from nanovllm.models.voxcpm.config import MiniCPM4Config, CfmConfig, VoxCPMConfig
-from nanovllm.utils.context import get_context
+from nanovllm_voxcpm.models.voxcpm.config import MiniCPM4Config, CfmConfig, VoxCPMConfig
+from nanovllm_voxcpm.utils.context import get_context
 
 def rotate_half(x):
     """Rotates half the hidden dims of the input."""

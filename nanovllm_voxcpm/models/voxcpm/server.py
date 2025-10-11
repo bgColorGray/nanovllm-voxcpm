@@ -1,5 +1,5 @@
 from huggingface_hub import snapshot_download
-from nanovllm.models.voxcpm.engine import VoxCPMEngine, VoxCPMConfig, Config
+from nanovllm_voxcpm.models.voxcpm.engine import VoxCPMEngine, VoxCPMConfig, Config
 import os
 import torch.multiprocessing as mp
 from queue import Empty
