@@ -20,11 +20,33 @@ pip install -e .
 
 ## Quick Start
 
-### 1. Basic Usage
+### 1. Docker Deployment (Recommended)
+
+```bash
+# Clone the repository
+git clone https://github.com/bgColorGray/nanovllm-voxcpm.git
+cd nanovllm-voxcpm
+
+# Download VoxCPM model to ./VoxCPM1.5 or ./VoxCPM-0.5B
+
+# Start with docker-compose
+docker-compose up -d
+
+# Or build and run manually
+docker build -t voxcpm-tts .
+docker run -d --gpus all \
+  -p 8081:8081 \
+  -v ./VoxCPM1.5:/app/VoxCPM1.5:ro \
+  -e VOXCPM_GPU_MEMORY_UTILIZATION=0.4 \
+  -e VOXCPM_MAX_NUM_SEQS=128 \
+  voxcpm-tts
+```
+
+### 2. Basic Usage
 
 See the [example.py](example.py) for a basic usage example.
 
-### 2. OpenAI Compatible API Server
+### 3. OpenAI Compatible API Server
 
 ```bash
 # Set environment variables (optional, use defaults if not set)
@@ -115,6 +137,8 @@ See [benchmark/README.md](benchmark/README.md) for detailed benchmark documentat
 
 ```
 nanovllm-voxcpm/
+├── Dockerfile           # Docker image definition
+├── docker-compose.yml   # Docker Compose configuration
 ├── api_server/          # OpenAI compatible API server
 │   └── app.py
 ├── benchmark/           # Performance benchmark tools

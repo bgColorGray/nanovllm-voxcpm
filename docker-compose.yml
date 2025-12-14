@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  voxcpm:
+    build: .
+    image: voxcpm-tts:latest
+    container_name: voxcpm-tts
+    ports:
+      - "8081:8081"
+    environment:
+      # GPU Memory Optimization (recommended settings)
+      - VOXCPM_GPU_MEMORY_UTILIZATION=0.4
+      - VOXCPM_MAX_NUM_SEQS=128
+      - VOXCPM_MAX_MODEL_LEN=2048
+      # GPU devices (relative indices after NVIDIA_VISIBLE_DEVICES mapping)
+      - VOXCPM_DEVICES=0,1
+    volumes:
+      # Mount model directory (required)
+      - ./VoxCPM1.5:/app/VoxCPM1.5:ro
+      # Or use VoxCPM-0.5B
+      # - ./VoxCPM-0.5B:/app/VoxCPM-0.5B:ro
+      # Mount voices directory for voice cloning
+      - ./voices:/app/voices
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 2  # Number of GPUs
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  # Multi-instance example for load balancing
+  # voxcpm-group1:
+  #   build: .
+  #   ports:
+  #     - "8082:8081"
+  #   environment:
+  #     - VOXCPM_GPU_MEMORY_UTILIZATION=0.4
+  #     - VOXCPM_MAX_NUM_SEQS=128
+  #     - VOXCPM_DEVICES=0,1
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             device_ids: ['2', '3']
+  #             capabilities: [gpu]
